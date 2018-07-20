@@ -22,11 +22,21 @@ public class Controls : MonoBehaviour {
         }
     }
 
-    public static bool LeftInput{
-        get{ return Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") < 0; }
+    public static bool IsLeftInput
+    {
+        get { return Input.GetAxis("Horizontal") < 0; }
     }
 
-    public static bool RightInput {
-        get { return Input.GetButtonDown("Horizontal") && Input.GetAxis("Horizontal") > 0; }
+    public static bool IsRightInput
+    {
+        get { return Input.GetAxis("Horizontal") > 0; }
+    }
+
+    public static float LeftInput{
+        get{ return (Input.GetAxis("Horizontal") < 0) ? -1 : 0; }
+    }
+
+    public static float RightInput {
+        get { return (Input.GetAxis("Horizontal") > 0) ? 1 : 0; }
     }
 }

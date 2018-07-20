@@ -7,8 +7,11 @@ public class DechetControler : MonoBehaviour {
     [Header("Chute")]
     [Range(0.1f, 5f)]
     public float SecondChute = 1;
-    public static bool StopChute = false;
-    public void Stopped(bool _stop) { StopChute = _stop; }
+    [Range(0, 2)]
+    public float DistanceChute = 1;
+
+    private bool stopChute = false;
+    public void StopChute(bool _stop) { stopChute = _stop; }
 
     [System.Serializable]
     public struct Limit
@@ -17,6 +20,8 @@ public class DechetControler : MonoBehaviour {
         public float Right;
     }
     [Header("Limit")]
+    [SerializeField]
+    private bool IsLimit = true;
     [SerializeField]
     private Limit TrashLimit;
 
@@ -27,31 +32,37 @@ public class DechetControler : MonoBehaviour {
     private UnityEvent OnBlocked;
 
 
+
+    private Vector3 pos = Vector3.zero;
+
+
     IEnumerator Start()
     {
-        while (!StopChute)
+        pos = transform.position;
+
+        while (!stopChute)
         {
-            Vector3 pos = transform.position;
             yield return new WaitForSeconds(SecondChute);
-            if (!StopChute)
+            if (!stopChute)
             {
-                pos.y -= 1;
+                pos.y -= DistanceChute;
                 transform.position = pos;
             }
         }
     }
 
     void FixedUpdate () {
-        MoveDechet();
+        if(!stopChute) MoveDechet();
 	}
 
     void MoveDechet()
     {
-        Vector3 pos = transform.position;
+        pos = transform.position;
 
         pos.x += Controls.GetHorizontal;
 
-        pos.x = Mathf.Clamp( pos.x, TrashLimit.Left, TrashLimit.Right );
+        if (IsLimit)
+            pos.x = Mathf.Clamp( pos.x, TrashLimit.Left, TrashLimit.Right );
 
         transform.position = pos;
     }
