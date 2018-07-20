@@ -1,9 +1,14 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DechetControler : MonoBehaviour {
+
+    [Header("Chute")]
+    [Range(0.1f, 5f)]
+    public float SecondChute = 1;
+    public static bool StopChute = false;
+    public void Stopped(bool _stop) { StopChute = _stop; }
 
     [System.Serializable]
     public struct Limit
@@ -11,10 +16,32 @@ public class DechetControler : MonoBehaviour {
         public float Left;
         public float Right;
     }
+    [Header("Limit")]
     [SerializeField]
     private Limit TrashLimit;
-	
-	void FixedUpdate () {
+
+    [Header("Events")]
+    [SerializeField]
+    private UnityEvent OnAppear;
+    [SerializeField]
+    private UnityEvent OnBlocked;
+
+
+    IEnumerator Start()
+    {
+        while (!StopChute)
+        {
+            Vector3 pos = transform.position;
+            yield return new WaitForSeconds(SecondChute);
+            if (!StopChute)
+            {
+                pos.y -= 1;
+                transform.position = pos;
+            }
+        }
+    }
+
+    void FixedUpdate () {
         MoveDechet();
 	}
 
