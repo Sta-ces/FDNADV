@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class SpawnBox : MonoBehaviour {
-
+    
     public GameObject[] boxList;
 
     void Start()

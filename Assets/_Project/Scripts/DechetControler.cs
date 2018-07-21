@@ -12,29 +12,28 @@ public class DechetControler : MonoBehaviour {
 
     private bool stopChute = false;
     public void StopChute(bool _stop) { stopChute = _stop; }
-
-    [System.Serializable]
-    public struct Limit
-    {
-        public float Left;
-        public float Right;
-    }
-    [Header("Limit")]
-    [SerializeField]
-    private bool IsLimit = true;
-    [SerializeField]
-    private Limit TrashLimit;
+    
+    private bool downInput = true;
+    public void DownInput(bool _input) { downInput = _input; }
 
     [Header("Events")]
     [SerializeField]
     private UnityEvent OnAppear;
     [SerializeField]
-    private UnityEvent OnBlocked;
+    private UnityEvent OnStopped;
 
 
 
     private Vector3 pos = Vector3.zero;
+    private GridCreation grid;
+    private DetectBottom detect;
 
+
+    void Awake()
+    {
+        grid = FindObjectOfType<GridCreation>();
+        detect = FindObjectOfType<DetectBottom>();
+    }
 
     IEnumerator Start()
     {
@@ -52,17 +51,28 @@ public class DechetControler : MonoBehaviour {
     }
 
     void FixedUpdate () {
-        if(!stopChute) MoveDechet();
+        MoveDechet();
+
+        if(stopChute)
+        {
+            FindObjectOfType<SpawnBox>().SpawnNewBox();
+            FindObjectOfType<CheckVoisins>().CheckVoisin();
+            OnStopped.Invoke();
+        }
+
+        if (!stopChute && transform.position.y == -grid.gridHeight - 0.5f) stopChute = true;
+        if (!detect.CollideBottom && transform.position.y <= -grid.gridHeight + 2) downInput = false;
 	}
 
     void MoveDechet()
     {
         pos = transform.position;
-
-        pos.x += Controls.GetHorizontal;
-
-        if (IsLimit)
-            pos.x = Mathf.Clamp( pos.x, TrashLimit.Left, TrashLimit.Right );
+        
+        if (!detect.CollideRight) pos.x += Controls.RightInput;
+        if (!detect.CollideLeft) pos.x += Controls.LeftInput;
+        if (downInput) pos.y += Controls.DownInput;
+        
+        pos.x = Mathf.Clamp( pos.x, -grid.gridWidth + 1.5f, grid.gridWidth + 0.5f );
 
         transform.position = pos;
     }
