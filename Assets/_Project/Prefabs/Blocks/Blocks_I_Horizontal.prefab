@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4033323858989394}
   - component: {fileID: 114699068679011288}
   - component: {fileID: 114564626616585484}
+  - component: {fileID: 114693811168339702}
   m_Layer: 0
   m_Name: Blocks_I_Horizontal
   m_TagString: Untagged
@@ -324,6 +325,18 @@ MonoBehaviour:
   CollideBottom: 0
   CollideRight: 0
   CollideLeft: 0
+--- !u!114 &114693811168339702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015591870801732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7b0ba0117c02e4381c2ef6cc974342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointScore: 1
 --- !u!114 &114699068679011288
 MonoBehaviour:
   m_ObjectHideFlags: 1

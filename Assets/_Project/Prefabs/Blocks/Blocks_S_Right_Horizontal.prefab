@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4672552463698378}
   - component: {fileID: 114867414135652566}
   - component: {fileID: 114386539274468054}
+  - component: {fileID: 114209073018874054}
   m_Layer: 0
   m_Name: Blocks_S_Right_Horizontal
   m_TagString: Untagged
@@ -265,6 +266,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114209073018874054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965030256912984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7b0ba0117c02e4381c2ef6cc974342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointScore: 1
 --- !u!114 &114386539274468054
 MonoBehaviour:
   m_ObjectHideFlags: 1

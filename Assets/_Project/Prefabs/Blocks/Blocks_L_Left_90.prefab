@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4428723241694136}
   - component: {fileID: 114116018664601234}
   - component: {fileID: 114504196970698002}
+  - component: {fileID: 114111042305007558}
   m_Layer: 0
   m_Name: Blocks_L_Left_90
   m_TagString: Untagged
@@ -265,6 +266,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114111042305007558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1380096675808906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7b0ba0117c02e4381c2ef6cc974342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointScore: 1
 --- !u!114 &114116018664601234
 MonoBehaviour:
   m_ObjectHideFlags: 1

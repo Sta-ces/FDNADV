@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4186522797333918}
   - component: {fileID: 114458505491048914}
   - component: {fileID: 114784045832940288}
+  - component: {fileID: 114522677242371664}
   m_Layer: 0
   m_Name: Blocks_O
   m_TagString: Untagged
@@ -276,6 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ab9eee9ba1f284cad92ce120473cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Size: 2
   SecondChute: 1
   DistanceChute: 1
   OnAppear:
@@ -310,6 +312,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114522677242371664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1097055848739546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7b0ba0117c02e4381c2ef6cc974342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointScore: 1
 --- !u!114 &114784045832940288
 MonoBehaviour:
   m_ObjectHideFlags: 1
