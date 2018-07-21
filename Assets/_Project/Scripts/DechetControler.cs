@@ -4,6 +4,12 @@ using UnityEngine.Events;
 
 public class DechetControler : MonoBehaviour {
 
+    [Header("Main Params")]
+    [Tooltip("Width of the detritus")]
+    [Range(1, 4)]
+    [SerializeField]
+    private int Size = 2;
+
     [Header("Chute")]
     [Range(0.1f, 5f)]
     public float SecondChute = 1;
@@ -72,7 +78,7 @@ public class DechetControler : MonoBehaviour {
         if (!detect.CollideLeft) pos.x += Controls.LeftInput;
         if (downInput) pos.y += Controls.DownInput;
         
-        pos.x = Mathf.Clamp( pos.x, -grid.gridWidth + 1.5f, grid.gridWidth + 0.5f );
+        pos.x = Mathf.Clamp( pos.x, -grid.gridWidth + (Size - 0.5f), grid.gridWidth + 0.5f );
 
         transform.position = pos;
     }

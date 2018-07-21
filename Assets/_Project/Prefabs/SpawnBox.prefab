@@ -51,9 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9efe9db287122408c0a33ca488ed6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PathDirectory: _Project/Prefabs/Blocks
   boxList:
-  - {fileID: 1775009317576212, guid: f28a3e41b1d1c9347b3cc2b67a777d9f, type: 2}
-  - {fileID: 1857055589068642, guid: c217de34a6bf29944b346418524994f7, type: 2}
+  - {fileID: 1015591870801732, guid: 251981482112bec44ac0b6eaf1a1199a, type: 2}
+  - {fileID: 1151970604842474, guid: 234464bfcecd2fa49bb04d78d5281b73, type: 2}
   - {fileID: 1097055848739546, guid: ba1b67fa1bf2d364d87b7bdd97d2dcc3, type: 2}
-  - {fileID: 1312996294451210, guid: b6924d598f86eab478127edddee77f15, type: 2}
+  - {fileID: 1840565979841764, guid: 3d5ca67cf8649434e9b9b49f2ebc81da, type: 2}
+  - {fileID: 1049055342311600, guid: 9e61edd9a58c11b42aef0cd1b431e7cb, type: 2}
+  - {fileID: 1965030256912984, guid: 29df15b150ff21246a39caeb19b6ea64, type: 2}
+  - {fileID: 1775486169395686, guid: ecde9d58635c20349b6f2acbaeabfea8, type: 2}
