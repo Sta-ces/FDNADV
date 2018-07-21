@@ -35,5 +35,7 @@ public class GridCreation : MonoBehaviour {
             float z = 0;
             Instantiate(SpawnBlocks, new Vector3(x, y, z), Quaternion.identity);
         }
+
+        Camera.main.orthographicSize = gridHeight + 0.5f;
     }
 }
