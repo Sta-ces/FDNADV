@@ -61,8 +61,9 @@ public class DechetControler : MonoBehaviour {
 
         if(stopChute)
         {
-            FindObjectOfType<SpawnBox>().SpawnNewBox();
+            if(!detect.ToUpper) FindObjectOfType<SpawnBox>().SpawnNewBox();
             FindObjectOfType<CheckVoisins>().CheckVoisin();
+            if (GetComponent<DechetsScore>()) GetComponent<DechetsScore>().AddScore();
             OnStopped.Invoke();
         }
 

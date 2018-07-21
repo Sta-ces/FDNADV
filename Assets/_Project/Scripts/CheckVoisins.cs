@@ -28,6 +28,9 @@ public class CheckVoisins : MonoBehaviour {
                 print("Remove ligne "+h);
                 foreach(Collider2D p in points)
                 {
+                    if(p.transform.parent.GetComponent<DechetsScore>())
+                        p.transform.parent.GetComponent<DechetsScore>().AddScore(true);
+
                     Destroy(p.gameObject);
                 }
                 MoveAllPieces(h, grid, LayerToDetect);

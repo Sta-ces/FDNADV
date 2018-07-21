@@ -23,6 +23,8 @@ public class DetectBottom : MonoBehaviour
     private UnityEvent OnCollide;
     [SerializeField]
     private UnityEvent OnNearest;
+    [SerializeField]
+    private UnityEvent OnUpper;
 
     [HideInInspector]
     public bool CollideBottom = false;
@@ -30,6 +32,8 @@ public class DetectBottom : MonoBehaviour
     public bool CollideRight = false;
     [HideInInspector]
     public bool CollideLeft = false;
+    [HideInInspector]
+    public bool ToUpper = false;
 
 
     void Update () {
@@ -44,6 +48,11 @@ public class DetectBottom : MonoBehaviour
                     {
                         CollideBottom = true;
                         print("Collide");
+                        ToUpper = CheckIfUpper();
+                        if (ToUpper)
+                        {
+                            OnUpper.Invoke();
+                        }
                         OnCollide.Invoke();
                     }
                     if(hit.distance >= 1f && hit.distance <= 2f)
@@ -71,5 +80,18 @@ public class DetectBottom : MonoBehaviour
         }
 
         return allDetector.Contains(true);
+    }
+
+    bool CheckIfUpper()
+    {
+        bool upper = false;
+
+        foreach(Transform child in transform)
+        {
+            if(!upper)
+                upper = child.position.y >= FindObjectOfType<GridCreation>().gridHeight;
+        }
+
+        return upper;
     }
 }
